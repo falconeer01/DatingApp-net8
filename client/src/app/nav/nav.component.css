@@ -1,3 +1,7 @@
 .dropdown-toggle, .dropdown-item, .nav-link{
   cursor: pointer;
 }
+
+.navbar-brand{
+  padding-top: 0 !important;
+}
