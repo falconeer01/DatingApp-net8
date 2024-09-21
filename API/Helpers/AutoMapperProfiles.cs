@@ -12,6 +12,7 @@ public class AutoMapperProfiles : Profile
     {
         CreateMap<AppUser, MemberDto>()
             // destination
+            // to prevent unnecessary queries
             .ForMember(d => d.Age, o => o.MapFrom(s => s.DateOfBirth.CalculateAge()))
             .ForMember(d => d.PhotoUrl,
                 // options

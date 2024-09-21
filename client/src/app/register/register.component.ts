@@ -15,7 +15,7 @@ export class RegisterComponent {
   private toastr = inject(ToastrService);
 
   // @Input() usersFromHomeComponent: any *before Angular 17.3
-  usersFromHomeComponent = input.required<any>(); // this is an signal extension
+  // usersFromHomeComponent = input.required<any>(); this is an signal extension
 
   // @Output() cancelRegister = new EventEmitter(); *before Angular 17.3
   cancelRegister = output<boolean>(); // this is an signal extension
