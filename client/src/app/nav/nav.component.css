@@ -5,3 +5,9 @@
 .navbar-brand{
   padding-top: 0 !important;
 }
+
+img{
+  max-height: 50px;
+  border: 2px solid white;
+  display: inline;
+}
