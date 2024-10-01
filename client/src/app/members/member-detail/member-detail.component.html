@@ -1,12 +1,17 @@
 <div class="row">
   <div class="col-4">
     <div class="card">
+      <img
+        src="{{ member.photoUrl || './assets/user.png' }}"
+        alt="{{ member.knownAs }}"
+        class="card-img img-thumbnail"
+      />
       <div class="card-body">
-        <img
-          src="{{ member.photoUrl || './assets/user.png' }}"
-          alt="{{ member.knownAs }}"
-          class="card-img img-thumbnail"
-        />
+        @if (presenceService.onlineUsers().includes(member.username)){
+          <div class="mb-2">
+            <i class="fa fa-user-circle text-success"></i> Online now
+          </div>
+        }
         <div>
           <strong>Location:</strong>
           <p>{{ member.city }}, {{ member.country }}</p>
@@ -43,7 +48,7 @@
         <p>{{ member.lookingFor }}</p>
       </tab>
 
-      <tab heading="Interests">
+      <tab heading="Interests" (selectTab)="onTabActivated($event)">
         <h4>Interests</h4>
         <p>{{ member.interests }}</p>
       </tab>
@@ -61,8 +66,6 @@
       <tab heading="Messages" (selectTab)="onTabActivated($event)">
         <app-member-messages
           [username]="member.username"
-          [messages]="messages"
-          (updateMessages)="onUpdateMessages($event)"
         >
         </app-member-messages>
       </tab>
